@@ -6,17 +6,13 @@ class WeatherWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Weather",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
         SizedBox(height: 16),
         WeatherCard(
           location: "Dhaka",
           country: "Current location",
           weather: "Thunder",
           temperature: "20°C",
-          icon: Icons.cloud,
+          icon: "assets/thunder.png", 
         ),
         SizedBox(height: 16),
         Text(
@@ -29,22 +25,22 @@ class WeatherWidget extends StatelessWidget {
           country: "United States",
           weather: "Clear",
           temperature: "6°C",
-          icon: Icons.wb_sunny,
+          icon: "assets/heavy_rain.png",  
         ),
         WeatherCard(
           location: "Beijing",
           country: "China",
           weather: "Mostly sunny",
           temperature: "5°C",
-          icon: Icons.wb_sunny,
+          icon: "assets/sunny.png",  
         ),
         WeatherCard(
           location: "Moscow",
           country: "Russia",
           weather: "Cloudy",
           temperature: "-4°C",
-          icon: Icons.cloud_queue,
-        ),
+          icon: "assets/snow.png",  
+        )
       ],
     );
   }
@@ -55,20 +51,20 @@ class WeatherCard extends StatelessWidget {
   final String country;
   final String weather;
   final String temperature;
-  final IconData icon;
+  final String icon;  // Change IconData to String path
 
   const WeatherCard({
     required this.location,
     required this.country,
     required this.weather,
     required this.temperature,
-    required this.icon,
+    required this.icon,  // Accept PNG image path
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.purple,
+      color: Colors.deepPurple.shade900,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -94,7 +90,11 @@ class WeatherCard extends StatelessWidget {
             ),
             Column(
               children: [
-                Icon(icon, color: Colors.white, size: 32),
+                Image.asset(
+                  icon,  // Display the PNG image
+                  width: 64,
+                  height: 64,
+                ),
                 Text(
                   temperature,
                   style: TextStyle(color: Colors.white, fontSize: 16),

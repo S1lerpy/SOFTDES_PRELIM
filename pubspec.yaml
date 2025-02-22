@@ -17,3 +17,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/heavy_rain.png
+    - assets/sunny.png
+    - assets/snow.png
+    - assets/thunder.png
+
+ 
+  
+
+    
